@@ -1,0 +1,63 @@
+<body class="pokemon">
+
+    <div class="pokeImage">
+        <img src=<%= "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + @pokemon.pokedexNumber.to_s.rjust(3, "0") + ".png" %> alt=<%= @pokemon.name%> style="width:400px;height:400px;" > 
+    </div>
+
+    <div class="notImage">
+        <div class="data">
+            <p>
+                <strong>Name:</strong>
+                <%= @pokemon.name %>
+            </p>
+
+            <p>
+                <strong>Pokedex Number:</strong>
+                <%= @pokemon.pokedexNumber %>
+            </p>
+
+            <p>
+                <strong>Type 1:</strong>
+                <%= @pokemon.type1 %>
+            </p>
+
+            <p>
+                <% if @pokemon.type2 != ""%>
+                    <strong>Type 2:</strong>
+                    <%= @pokemon.type2 %>
+                <% end %>
+            </p>
+
+            <p>
+                <strong>Region:</strong>
+                <%= @pokemon.region %>
+            </p>
+
+            <p>
+                <strong>Description:</strong>
+                <%= @pokemon.description %>
+            </p>
+        </div>
+
+        <div class="navigationLinks">
+            <p>
+                <% if Pokemon.all.sort_by{|poke| poke.pokedexNumber}.select{|poke| poke.pokedexNumber < @pokemon.pokedexNumber}.reverse[0] != nil %>
+                    <form class="navButtons" action=<%= pokemon_path(Pokemon.all.sort_by{|poke| poke.pokedexNumber}.select{|poke| poke.pokedexNumber < @pokemon.pokedexNumber}.reverse[0]) %>>
+                        <input type="submit" value="Previous">
+                    </form>
+                <% end %>
+
+                <% if Pokemon.all.sort_by{|poke| poke.pokedexNumber}.select{|poke| poke.pokedexNumber > @pokemon.pokedexNumber}[0] != nil %>
+                    <form class="navButtons" action=<%= pokemon_path(Pokemon.all.sort_by{|poke| poke.pokedexNumber}.select{|poke| poke.pokedexNumber > @pokemon.pokedexNumber}[0]) %>>
+                        <input type="submit" value="Next">
+                    </form>
+                <% end %>                
+                <span style="background-color: #a6eff7;" >
+                    <%= link_to 'Back to Menu', pokemon_index_path%>
+                    |
+                    <%= link_to 'Edit', edit_pokemon_path(@pokemon) %>
+                </span>
+            </p>
+        </div>
+    </div>
+</body>

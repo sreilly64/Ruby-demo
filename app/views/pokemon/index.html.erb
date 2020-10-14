@@ -1,0 +1,41 @@
+<body class="pokemon">
+
+<h1>Welcome to the Pokedex!</h1>
+
+
+<div class="newEntryLink">
+  <%= link_to 'Close App', welcome_index_path %>
+  <br><br>
+  <%= link_to 'Add new entry', new_pokemon_path %>
+</div>
+
+
+<table id="pokelist">
+  <!-- <div class="dropdown">
+    <button class="dropbtn">Filter by Type</button>
+    <div class="dropdown-content">
+      <a href="#Bug">Bug</a>
+      <a href="#Darl">Dark</a>
+      <a href="#Dragon">Dragon</a>
+      <a href="#Electric">Electric</a>
+      <a href="#Fire">Fire</a>
+    </div>
+  </div> -->
+
+  <tr>
+      <th></th>
+      <th>Pokemon</th>
+      <th></th>
+  </tr>
+ 
+  <% Pokemon.all.sort_by{|poke| poke.pokedexNumber}.each do |pokemon| %>
+    <tr>
+      <td><%= pokemon.pokedexNumber %></td>
+      <td><%= link_to pokemon.name, pokemon_path(pokemon) %></td>
+      <td><%= link_to '(Edit)', edit_pokemon_path(pokemon) %></td>
+      <td><%= link_to '(Delete)', pokemon_path(pokemon), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>
+
+</body>

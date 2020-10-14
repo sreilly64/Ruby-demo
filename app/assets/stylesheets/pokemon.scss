@@ -1,0 +1,101 @@
+// Place all the styles related to the Pokemon controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+body.pokemon{
+    background-image: url("https://cutewallpaper.org/21/pokemon-forest-background/Pokemon-Lets-Go-Pikachu-and-Eevee-Pre-Release-Review-HYPEBEAST.png");
+    background-size: 100%;
+}
+
+h1{
+    text-align: center;
+    margin: auto;
+}
+
+.pokeImage {
+    float: left;
+    margin-left: 140px;
+    margin-top: 100px;
+}
+
+.newEntryLink{
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}
+
+form.navButtons{
+    display: inline-block;
+}
+
+.notImage{
+    float: right;
+    width: 40%;
+    margin-right: 140px;
+    margin-top: 120px;
+}
+
+.data{
+    padding: 10px;
+    border-style: solid;
+    background-color: rgba(166, 239, 247, 0.75);
+}
+
+#pokelist{
+    text-align: center;
+    margin: auto;
+    background-color: rgba(166, 239, 247, 0.75);
+    border-style: solid;
+    border-color: black;
+}
+
+#pokeinfo{
+    text-align: left;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }

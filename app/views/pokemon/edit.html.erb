@@ -1,0 +1,60 @@
+<body class="pokemon">
+
+<h1>Edit Pokedex Entry</h1>
+ 
+<%= form_with(model: @pokemon, local: true) do |form| %>
+ 
+  <% if @pokemon.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@pokemon.errors.count, "error") %> prohibited
+        this entry from being saved:
+      </h2>
+      <ul>
+        <% @pokemon.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :pokedexNumber %><br>
+    <%= form.text_field :pokedexNumber %>
+  </p>
+
+  <p>
+    <%= form.label :type1 %><br>
+    <%= form.text_field :type1 %>
+  </p>
+
+  <p>
+    <%= form.label :type2 %><br>
+    <%= form.text_field :type2 %>
+  </p>
+
+  <p>
+    <%= form.label :region %><br>
+    <%= form.text_field :region %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<span style="background-color: #a6eff7;" >
+  <%= link_to 'Back', pokemon_index_path %>
+</span>
+
+</body>
